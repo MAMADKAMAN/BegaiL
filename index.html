@@ -9,7 +9,8 @@
 
         body {
             font-family: 'Press Start 2P', cursive;
-            background: black;
+            background: url('https://uploadkon.ir/uploads/0b1405_25nody-عکس-هکر-جدید-1633990347.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: lime;
             text-align: center;
             overflow: hidden;
@@ -24,19 +25,6 @@
             background: url('matrix.gif') repeat;
             opacity: 0.8;
             z-index: -1;
-        }
-
-        .animated-text {
-            font-size: 50px;
-            font-weight: bold;
-            color: red;
-            animation: glitch 1s infinite;
-        }
-
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px red; }
-            50% { text-shadow: -2px -2px red; }
-            100% { text-shadow: 2px 2px red; }
         }
 
         .three-lines {
@@ -54,7 +42,7 @@
         .red-line { color: red; }
         .green-line { color: lime; }
         .blue-line { color: cyan; }
-        .white-line { color: gray; }
+        .gray-line { color: gray; }
 
         .login-container {
             margin: 50px auto;
@@ -93,18 +81,24 @@
             border-radius: 10px;
             display: none;
         }
+
+        .bottom-image {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="matrix-bg"></div>
     <audio id="typing-sound" src="typing.mp3"></audio>
     
-    <div class="five-lines">
+    <div class="four-lines">
         <div class="line red-line">OsTaD</div>
         <div class="line green-line">MmD</div>
         <div class="line blue-line">BeGaiL</div>
-        <div class="line white-line">@BGIYL</div>
-        <div class="line white-line">   </div>
+        <div class="line gray-line">@BGIYL</div>
     </div>
 
     <div class="login-container">
@@ -113,6 +107,12 @@
         <button onclick="checkLogin()">Login</button>
     </div>
     <div id="hacker-code"></div>
+
+    <div class="bottom-image">
+        <a href="https://uploadkon.ir/" target="_blank">
+            <img src="https://uploadkon.ir/uploads/0c9205_25InShot-۲۰۲۵۰۵۰۵-۰۶۴۹۳۱۰۶۷.png" border="0" alt="Hacker Image">
+        </a>
+    </div>
 
     <script>
         document.addEventListener("click", function() {
