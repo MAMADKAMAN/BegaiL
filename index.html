@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BeGaiL System</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -30,11 +30,29 @@
       z-index: -1;
     }
 
+    .glow-text {
+      text-transform: small-caps;
+      font-size: 20px;
+      color: white;
+      margin-top: 10px;
+      letter-spacing: 2px;
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+      to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 40px #0ff;
+      }
+    }
+
     .five-lines {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 100px;
+      padding-top: 20px;
     }
 
     .line {
@@ -119,6 +137,8 @@
 <body>
   <div class="matrix-bg"></div>
   <audio id="typing-sound" src="typing.mp3"></audio>
+
+  <div class="glow-text">IN GOD WE TRUST</div>
 
   <div class="five-lines">
     <div class="line red-line">OsTaD</div>
