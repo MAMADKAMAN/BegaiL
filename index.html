@@ -103,13 +103,13 @@
 </head>
 <body>
     <div class="matrix-background"></div>
-    <div class="skull">☠️</div>
+    <div class="skull">@BGIYL</div>
     <h1 class="animated-text">BeGaiL</h1>
     <div class="login-container">
-        <h2>ورود به سیستم</h2>
-        <input type="text" id="username" placeholder="نام کاربری">
-        <input type="password" id="password" placeholder="رمز عبور">
-        <button onclick="checkLogin()">ورود</button>
+        <h2>login to begail</h2>
+        <input type="text" id="username" placeholder="username">
+        <input type="password" id="password" placeholder="password">
+        <button onclick="checkLogin()">login</button>
     </div>
     <div class="hacker-screen" id="hackerScreen">
         <pre id="hackerText"></pre>
@@ -123,7 +123,7 @@
                 document.getElementById("hackerScreen").style.display = "block";
                 document.getElementById("hackerText").innerText = generateHackerCode();
             } else {
-                alert("نام کاربری یا رمز عبور اشتباه است!");
+                alert("password or username is incorrect! ");
             }
         }
 
