@@ -39,40 +39,36 @@
             100% { text-shadow: 2px 2px red; }
         }
 
-        .username {
-            font-size: 30px;
-            color: white;
-            font-weight: bold;
-            animation: flicker 1.5s infinite;
+        .three-lines {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
         }
 
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.2; }
-            100% { opacity: 1; }
+        .line {
+            font-size: 40px;
+            font-weight: bold;
         }
+
+        .red-line { color: red; }
+        .green-line { color: lime; }
+        .blue-line { color: cyan; }
 
         .login-container {
             margin: 50px auto;
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
-            width: 300px;
+            width: 320px;
             border: 2px solid red;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { border-color: red; }
-            50% { border-color: lime; }
-            100% { border-color: red; }
         }
 
         input, button {
             display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            width: 95%;
+            padding: 12px;
+            margin: 10px auto;
             border-radius: 10px;
             font-size: 18px;
         }
@@ -85,10 +81,6 @@
             cursor: pointer;
         }
 
-        .hidden {
-            display: none;
-        }
-
         #hacker-code {
             font-size: 14px;
             color: lime;
@@ -98,33 +90,39 @@
             background: black;
             padding: 15px;
             border-radius: 10px;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="matrix-bg"></div>
-    <audio id="typing-sound" src="typing.mp3" autoplay></audio>
-    <h1 class="animated-text">BeGaiL</h1>
-    <div class="username">@BGIYL</div>
+    <audio id="typing-sound" src="typing.mp3"></audio>
+    
+    <div class="three-lines">
+        <div class="line red-line">SYSTEM BREACH DETECTED</div>
+        <div class="line green-line">ACCESS GRANTED</div>
+        <div class="line blue-line">INITIALIZING PROTOCOLS...</div>
+    </div>
+
     <div class="login-container">
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="checkLogin()">Login</button>
     </div>
-    <div id="hacker-code" class="hidden"></div>
+    <div id="hacker-code"></div>
 
     <script>
-        function playSound() {
-            const sound = document.getElementById('typing-sound');
-            sound.play();
-        }
+        document.addEventListener("click", function() {
+            document.getElementById("typing-sound").play();
+        });
 
         function checkLogin() {
-            playSound();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            document.getElementById("typing-sound").play();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
             if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
-                document.getElementById('hacker-code').classList.remove('hidden');
+                document.getElementById("hacker-code").style.display = "block";
                 let hackerText = `
                 ACCESS GRANTED...
                 Initializing system protocols...
@@ -134,7 +132,7 @@
                 Data breach in progress...
                 TRACING BACK CONNECTION...
                 `;
-                document.getElementById('hacker-code').innerText = hackerText;
+                document.getElementById("hacker-code").innerText = hackerText;
             } else {
                 alert("Invalid credentials! SYSTEM LOCKDOWN ENGAGED.");
             }
