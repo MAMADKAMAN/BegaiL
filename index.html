@@ -6,6 +6,7 @@
     <title>BeGaiL System</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
         body {
             font-family: 'Press Start 2P', cursive;
@@ -40,16 +41,21 @@
             100% { text-shadow: 2px 2px red; }
         }
 
-        .three-lines {
+        .five-lines {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 50px; /* فاصله از بالا */
         }
 
         .line {
             font-size: 40px;
             font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .red-line, .green-line, .blue-line {
+            font-family: 'UnifrakturCook', cursive; /* فونت گوتیک */
         }
 
         .red-line { color: red; }
