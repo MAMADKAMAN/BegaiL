@@ -9,8 +9,7 @@
 
         body {
             font-family: 'Press Start 2P', cursive;
-            background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: black;
             color: lime;
             text-align: center;
             overflow: hidden;
@@ -22,12 +21,26 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background: url('matrix.gif') repeat;
+            background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center;
+            background-size: cover;
             opacity: 0.8;
             z-index: -1;
         }
 
-        .five-lines {
+        .animated-text {
+            font-size: 50px;
+            font-weight: bold;
+            color: red;
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px red; }
+            50% { text-shadow: -2px -2px red; }
+            100% { text-shadow: 2px 2px red; }
+        }
+
+        .three-lines {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -81,13 +94,6 @@
             border-radius: 10px;
             display: none;
         }
-
-        .bottom-image {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -99,6 +105,7 @@
         <div class="line green-line">MmD</div>
         <div class="line blue-line">BeGaiL</div>
         <div class="line white-line">@BGIYL</div>
+        <div class="line white-line">   </div>
     </div>
 
     <div class="login-container">
@@ -107,12 +114,6 @@
         <button onclick="checkLogin()">Login</button>
     </div>
     <div id="hacker-code"></div>
-
-    <div class="bottom-image">
-        <a href="https://uploadkon.ir/" target="_blank">
-            <img src="https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg" border="0" alt="Hacker Image">
-        </a>
-    </div>
 
     <script>
         document.addEventListener("click", function() {
