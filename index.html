@@ -1,154 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeGaiL System</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BeGaiL System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
-        body {
-            font-family: 'Press Start 2P', cursive;
-            background: black;
-            color: lime;
-            text-align: center;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: black;
+      color: lime;
+      text-align: center;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
 
-        .matrix-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center;
-            background-size: cover;
-            opacity: 0.8;
-            z-index: -1;
-        }
+    .matrix-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center;
+      background-size: cover;
+      opacity: 0.8;
+      z-index: -1;
+    }
 
-        .animated-text {
-            font-size: 50px;
-            font-weight: bold;
-            color: red;
-            animation: glitch 1s infinite;
-        }
+    .five-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
+    }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px red; }
-            50% { text-shadow: -2px -2px red; }
-            100% { text-shadow: 2px 2px red; }
-        }
+    .line {
+      font-size: 40px;
+      font-weight: bold;
+      margin: 5px 0;
+      animation: blink 2s infinite alternate, move 3s infinite ease-in-out;
+    }
 
-        .five-lines {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px; /* فقط فاصله برای متن‌ها */
-            position: relative;
-            z-index: 1;
-        }
+    .red-line, .green-line, .blue-line {
+      font-family: 'UnifrakturCook', cursive;
+    }
 
-        .line {
-            font-size: 40px;
-            font-weight: bold;
-            margin: 5px 0;
-        }
+    .red-line { color: red; animation-delay: 0s, 0s; }
+    .green-line { color: lime; animation-delay: 0.5s, 0.2s; }
+    .blue-line { color: cyan; animation-delay: 1s, 0.4s; }
+    .white-line { color: black; animation-delay: 1.5s, 0.6s; }
 
-        .red-line, .green-line, .blue-line {
-            font-family: 'UnifrakturCook', cursive; /* فونت گوتیک */
-        }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
 
-        .red-line { color: red; }
-        .green-line { color: lime; }
-        .blue-line { color: cyan; }
-        .white-line { color: black; }
+    @keyframes move {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2px); }
+    }
 
-        .login-container {
-            margin: 50px auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            width: 320px;
-            border: 2px solid red;
-        }
+    .login-container {
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      width: 320px;
+      border: 2px solid red;
+    }
 
-        input, button {
-            display: block;
-            width: 95%;
-            padding: 12px;
-            margin: 10px auto;
-            border-radius: 10px;
-            font-size: 18px;
-        }
+    input, button {
+      display: block;
+      width: 95%;
+      padding: 12px;
+      margin: 10px auto;
+      border-radius: 10px;
+      font-size: 18px;
+    }
 
-        button {
-            background: red;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    button {
+      background: red;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        #hacker-code {
-            font-size: 14px;
-            color: lime;
-            font-family: monospace;
-            text-align: left;
-            white-space: pre-wrap;
-            background: black;
-            padding: 15px;
-            border-radius: 10px;
-            display: none;
-        }
-    </style>
+    #hacker-code {
+      font-size: 14px;
+      color: lime;
+      font-family: monospace;
+      text-align: left;
+      white-space: pre-wrap;
+      background: black;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="matrix-bg"></div>
-    <audio id="typing-sound" src="typing.mp3"></audio>
-    
-    <div class="five-lines">
-        <div class="line red-line">OsTaD</div>
-        <div class="line green-line">MmD</div>
-        <div class="line blue-line">BeGaiL</div>
-        <div class="line white-line">@BGIYL</div>
-        <div class="line white-line">   </div>
-    </div>
+  <div class="matrix-bg"></div>
+  <audio id="typing-sound" src="typing.mp3"></audio>
 
-    <div class="login-container">
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="checkLogin()">Login</button>
-    </div>
-    <div id="hacker-code"></div>
+  <div class="five-lines">
+    <div class="line red-line">OsTaD</div>
+    <div class="line green-line">MmD</div>
+    <div class="line blue-line">BeGaiL</div>
+    <div class="line white-line">@BGIYL</div>
+    <div class="line white-line">   </div>
+  </div>
 
-    <script>
-        document.addEventListener("click", function() {
-            document.getElementById("typing-sound").play();
-        });
+  <div class="login-container">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkLogin()">Login</button>
+  </div>
 
-        function checkLogin() {
-            document.getElementById("typing-sound").play();
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
+  <div id="hacker-code"></div>
 
-            if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
-                document.getElementById("hacker-code").style.display = "block";
-                let hackerText = `
-                ACCESS GRANTED...
-                Initializing system protocols...
-                Scanning for vulnerabilities...
-                Bypassing encryption...
-                Injecting exploit...
-                Data breach in progress...
-                TRACING BACK CONNECTION...
-                `;
-                document.getElementById("hacker-code").innerText = hackerText;
-            } else {
-                alert("Invalid credentials! SYSTEM LOCKDOWN ENGAGED.");
-            }
-        }
-    </script>
+  <script>
+    document.addEventListener("click", function() {
+      document.getElementById("typing-sound").play();
+    });
+
+    function checkLogin() {
+      document.getElementById("typing-sound").play();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
+        document.getElementById("hacker-code").style.display = "block";
+        let hackerText = `
+        ACCESS GRANTED...
+        Initializing system protocols...
+        Scanning for vulnerabilities...
+        Bypassing encryption...
+        Injecting exploit...
+        Data breach in progress...
+        TRACING BACK CONNECTION...
+        `;
+        document.getElementById("hacker-code").innerText = hackerText;
+      } else {
+        alert("Invalid credentials! SYSTEM LOCKDOWN ENGAGED.");
+      }
+    }
+  </script>
 </body>
 </html>
