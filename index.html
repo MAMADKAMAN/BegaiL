@@ -1,9 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa">
 <head>
-  <title>سایت من</title>
+  <meta charset="UTF-8">
+  <title>BeGaiL Secure Terminal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #loginScreen, #mainScreen {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 18px;
+      background: black;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      outline: none;
+    }
+
+    .telegram {
+      position: fixed;
+      bottom: 20px;
+      text-align: center;
+      width: 100%;
+      font-size: 18px;
+      opacity: 0.7;
+      z-index: 3;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    #title {
+      font-size: 50px;
+      margin-top: 50px;
+      z-index: 2;
+      position: relative;
+    }
+
+    #accessMessage {
+      color: lime;
+      font-size: 20px;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
-  <h1>سلام! خوش اومدی به سایت من.</h1>
+
+<div id="loginScreen">
+  <h1>برای ورود به سیستم بگاعیل، رمز وارد کن</h1>
+  <input type="password" id="passwordInput" placeholder="رمز عبور...">
+  <div id="accessMessage"></div>
+</div>
+
+<div id="mainScreen" style="display: none;">
+  <canvas id="matrix"></canvas>
+  <div id="title">بگاعیل</div>
+  <div class="telegram">@BGIYL</div>
+  <audio id="typeSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+</div>
+
+<script>
+  const correctPassword = "OsTaDMmDBeGaiL1234";
+  const input = document.getElementById("passwordInput");
+  const loginScreen = document.getElementById("loginScreen");
+  const mainScreen = document.getElementById("mainScreen");
+  const accessMsg = document.getElementById("accessMessage");
+  const sound = document.getElementById("typeSound");
+
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      if (input.value === correctPassword) {
+        accessMsg.textContent = "دسترسی موفق - ورود به سیستم بگاعیل...";
+        sound.play();
+        setTimeout(() => {
+          loginScreen.style.display = "none";
+          mainScreen.style.display = "block";
+          startMatrix();
+        }, 2000);
+      } else {
+        accessMsg.textContent = "رمز اشتباه است!";
+      }
+    }
+  });
+
+  function startMatrix() {
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "01";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0F0";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+          drops[i] = 0;
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 33);
+  }
+</script>
 </body>
-</html>
+  </html>
