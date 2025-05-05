@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeGaiL System</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -20,6 +20,8 @@
 
     .matrix-bg {
       position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center;
@@ -32,36 +34,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 50px;
-      position: relative;
-      z-index: 1;
+      padding-top: 100px;
     }
 
     .line {
       font-size: 40px;
       font-weight: bold;
-      margin: 5px 0;
-      animation: blink 2s infinite alternate, move 3s infinite ease-in-out;
+      animation: blink 3s infinite, float 3s infinite;
     }
 
-    .red-line, .green-line, .blue-line {
+    .red-line {
+      color: red;
       font-family: 'UnifrakturCook', cursive;
+      animation-delay: 0s;
     }
 
-    .red-line { color: red; animation-delay: 0s, 0s; }
-    .green-line { color: lime; animation-delay: 0.5s, 0.2s; }
-    .blue-line { color: cyan; animation-delay: 1s, 0.4s; }
-    .white-line { color: black; animation-delay: 1.5s, 0.6s; }
+    .green-line {
+      color: lime;
+      font-family: 'UnifrakturCook', cursive;
+      animation-delay: 0.5s;
+    }
+
+    .blue-line {
+      color: cyan;
+      font-family: 'UnifrakturCook', cursive;
+      animation-delay: 1s;
+    }
+
+    .white-line {
+      color: black;
+      font-family: 'Press Start 2P', cursive;
+      animation-delay: 1.5s;
+    }
 
     @keyframes blink {
-      0% { opacity: 1; }
+      0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
-      100% { opacity: 1; }
     }
 
-    @keyframes move {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-2px); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
     }
 
     .login-container {
@@ -112,7 +125,6 @@
     <div class="line green-line">MmD</div>
     <div class="line blue-line">BeGaiL</div>
     <div class="line white-line">@BGIYL</div>
-    <div class="line white-line">   </div>
   </div>
 
   <div class="login-container">
@@ -124,7 +136,7 @@
   <div id="hacker-code"></div>
 
   <script>
-    document.addEventListener("click", function() {
+    document.addEventListener("click", function () {
       document.getElementById("typing-sound").play();
     });
 
@@ -136,13 +148,13 @@
       if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
         document.getElementById("hacker-code").style.display = "block";
         let hackerText = `
-        ACCESS GRANTED...
-        Initializing system protocols...
-        Scanning for vulnerabilities...
-        Bypassing encryption...
-        Injecting exploit...
-        Data breach in progress...
-        TRACING BACK CONNECTION...
+ACCESS GRANTED...
+Initializing system protocols...
+Scanning for vulnerabilities...
+Bypassing encryption...
+Injecting exploit...
+Data breach in progress...
+TRACING BACK CONNECTION...
         `;
         document.getElementById("hacker-code").innerText = hackerText;
       } else {
