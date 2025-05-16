@@ -1,139 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Matrix System</title>
-  <!-- فونت‌ها -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Press Start 2P', cursive;
-      background: black;
-      color: lime;
-      text-align: center;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    }
-    .matrix-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center;
-      background-size: cover;
-      opacity: 0.8;
-      z-index: -1;
-    }
-    .glow-text {
-      margin-top: 10px;
-      font-size: 20px;
-      color: #0ff;
-      animation: glow 1.8s infinite alternate, flicker 0.3s infinite alternate;
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-    }
-    @keyframes glow {
-      from { opacity: 0.8; }
-      to { opacity: 1; }
-    }
-    @keyframes flicker {
-      0% { opacity: 0.9; }
-      50% { opacity: 0.6; }
-      100% { opacity: 1; }
-    }
-    .five-lines {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-    }
-    .line {
-      font-size: 40px;
-      font-weight: bold;
-      animation: blink 3s infinite, float 3s infinite;
-    }
-    .red-line { color: red; font-family: 'UnifrakturCook', cursive; }
-    .green-line { color: lime; font-family: 'UnifrakturCook', cursive; }
-    .blue-line { color: cyan; font-family: 'UnifrakturCook', cursive; }
-    .white-line { color: black; font-family: 'Press Start 2P', cursive; }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    .login-container {
-      margin: 50px auto;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 15px;
-      width: 320px;
-      border: 2px solid red;
-    }
-    input, button {
-      display: block;
-      width: 95%;
-      padding: 12px;
-      margin: 10px auto;
-      border-radius: 10px;
-      font-size: 18px;
-    }
-    button {
-      background: red;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #python-terminal, #music-player {
-      display: none;
-      padding: 20px;
-    }
-    textarea {
-      width: 95%;
-      font-family: monospace;
-      background: black;
-      color: lime;
-      border: 1px solid lime;
-      border-radius: 10px;
-    }
-    pre {
-      background: #000;
-      color: #0f0;
-      padding: 15px;
-      margin-top: 10px;
-      text-align: left;
-      border-radius: 10px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-    .music-container {
-      background: rgba(0, 0, 0, 0.8);
-      border: 2px solid lime;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 50px auto;
-      width: 80%;
-    }
-    .music-container h2 {
-      color: #0ff;
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
-    }
-    .music-container audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BeGaiL System</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+  body {
+    margin: 0; padding: 0; font-family: 'Press Start 2P', cursive;
+    background: black; color: lime; text-align: center; overflow: hidden;
+  }
+
+  .matrix-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://uploadkon.ir/uploads/fea005_25InShot-۲۰۲۵۰۵۰۵-۰۷۰۶۲۶۴۲۱.jpg') no-repeat center center;
+    background-size: cover; opacity: 0.8; z-index: -1;
+  }
+
+  .glow-text {
+    font-variant: small-caps; font-size: 24px; color: white; margin-top: 10px;
+    letter-spacing: 3px;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff; }
+    to { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff; }
+  }
+
+  .five-lines {
+    display: flex; flex-direction: column; align-items: center; padding-top: 20px;
+  }
+
+  .line {
+    font-size: 40px; font-weight: bold; animation: blink 3s infinite, float 3s infinite;
+    font-family: 'UnifrakturCook', cursive;
+  }
+
+  .red-line { color: red; animation-delay: 0s; }
+  .green-line { color: lime; animation-delay: 0.5s; }
+  .blue-line { color: cyan; animation-delay: 1s; }
+  .white-line {
+    color: #333; font-family: 'Press Start 2P', cursive; animation-delay: 1.5s;
+    filter: drop-shadow(2px 2px 2px black);
+  }
+
+  @keyframes blink {
+    0%,100%{opacity:1;}
+    50%{opacity:0.3;}
+  }
+  @keyframes float {
+    0%,100%{transform: translateY(0);}
+    50%{transform: translateY(-3px);}
+  }
+
+  .login-container {
+    margin: 50px auto; padding: 20px; background: rgba(0,0,0,0.8);
+    border-radius: 15px; width: 320px; border: 2px solid red;
+  }
+
+  input, button {
+    display: block; width: 95%; padding: 12px; margin: 10px auto;
+    border-radius: 10px; font-size: 18px;
+  }
+
+  button {
+    background: red; color: white; font-size: 20px; font-weight: bold; cursor: pointer;
+  }
+
+  #hacker-code {
+    font-size: 14px; color: lime; font-family: monospace; text-align: left;
+    white-space: pre-wrap; background: black; padding: 15px; border-radius: 10px;
+    display: none;
+  }
+
+  /* صفحات بعدی */
+  .hidden { display: none; }
+
+  #python-page, #music-page {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: black; color: lime; font-family: 'Press Start 2P', cursive;
+    overflow: auto; padding: 20px;
+  }
+
+  #python-console {
+    background: rgba(0,0,0,0.9); border: 2px solid lime; border-radius: 15px;
+    padding: 15px; font-family: monospace; height: 300px; overflow-y: scroll;
+    margin-top: 20px; white-space: pre-wrap;
+  }
+
+  #python-input {
+    width: 100%; padding: 10px; font-family: monospace; font-size: 16px;
+    border-radius: 10px; border: 2px solid lime; margin-top: 15px;
+    background: black; color: lime;
+  }
+
+  #run-btn {
+    margin-top: 10px; padding: 10px 20px; font-weight: bold;
+    font-family: 'Press Start 2P', cursive; cursor: pointer;
+    background: lime; color: black; border: none; border-radius: 10px;
+  }
+
+  #music-player {
+    margin-top: 50px;
+  }
+
+  #music-player audio {
+    width: 90%;
+    margin: 15px auto;
+    display: block;
+  }
+
+  #music-page h2 {
+    font-size: 32px; margin-bottom: 10px; text-shadow: 0 0 10px lime;
+  }
+
+  #music-page .song-title {
+    font-size: 22px; margin-top: 15px; text-shadow: 0 0 5px cyan;
+  }
+</style>
 </head>
 <body>
-  <div class="matrix-bg"></div>
-  <audio id="typing-sound" src="data:audio/mp3;base64,//uQxAAADHhBTUUzAAABcG5..."></audio>
 
+<div id="login-page">
+  <div class="matrix-bg"></div>
   <div class="glow-text">IN GOD WE TRUST</div>
 
   <div class="five-lines">
@@ -144,74 +136,129 @@
   </div>
 
   <div class="login-container">
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="checkLogin()">Login</button>
+    <input type="text" id="username" placeholder="Username" autocomplete="off" />
+    <input type="password" id="password" placeholder="Password" autocomplete="off" />
+    <button id="login-btn">Login</button>
   </div>
 
-  <div id="python-terminal">
-    <h2>Matrix Python Console</h2>
-    <textarea id="code" rows="10" placeholder="print('Hello Matrix!')"></textarea>
-    <button onclick="runPythonCode()">Run Code</button>
-    <pre id="output"></pre>
+  <div id="hacker-code"></div>
+</div>
+
+<!-- صفحه محیط ماتریکس و اجرای پایتون -->
+<div id="python-page" class="hidden">
+  <div class="matrix-bg"></div>
+  <h1>Welcome to Matrix Python Runner</h1>
+  <p>Type your Python code below and press RUN.</p>
+  <textarea id="python-input" rows="8" placeholder="print('Hello, BeGaiL!')"></textarea>
+  <button id="run-btn">RUN</button>
+  <pre id="python-console"></pre>
+  <button id="logout-python" style="margin-top:20px; background:red; color:white; padding:10px; border:none; border-radius:10px; cursor:pointer;">Logout</button>
+</div>
+
+<!-- صفحه پخش آهنگ -->
+<div id="music-page" class="hidden">
+  <h1>BeGaiL Music Player</h1>
+  <div id="music-player">
+    <div class="song-title">Living Life in the Night</div>
+    <audio controls id="song1" src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_b25b4fef87.mp3?filename=energy-ambient-11738.mp3"></audio>
+
+    <div class="song-title">نگاه کن این منم</div>
+    <audio controls id="song2" src="https://cdn.pixabay.com/download/audio/2021/10/29/audio_f57d06a79d.mp3?filename=peaceful-piano-11885.mp3"></audio>
   </div>
+  <button id="logout-music" style="margin-top:20px; background:red; color:white; padding:10px; border:none; border-radius:10px; cursor:pointer;">Logout</button>
+</div>
 
-  <div id="music-player" class="music-container">
-    <h2>🎵 Music Player</h2>
-    <p>Now Playing: Living Life in the Night</p>
-    <audio controls>
-      <source src="https://archive.org/download/cheriimoya-sierra-kidd-living-life-in-the-night-long-edition-night-drift_202203/cheriimoya-sierra-kidd-living-life-in-the-night-long-edition-night-drift.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <p>Now Playing: نگاه کن این منم</p>
-    <audio controls>
-      <source src="https://sultanmusic.ir/wp-content/uploads/2022/10/Negah-Kon-In-Manam.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+<script>
+  const loginPage = document.getElementById('login-page');
+  const pythonPage = document.getElementById('python-page');
+  const musicPage = document.getElementById('music-page');
 
-  <script>
-    document.addEventListener("click", function () {
-      const audio = document.getElementById("typing-sound");
-      if (audio) audio.play();
-    });
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const loginBtn = document.getElementById('login-btn');
+  const hackerCodeDiv = document.getElementById('hacker-code');
 
-    function checkLogin() {
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
+  const pythonInput = document.getElementById('python-input');
+  const pythonConsole = document.getElementById('python-console');
+  const runBtn = document.getElementById('run-btn');
 
-      if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
-        document.querySelector(".login-container").style.display = "none";
-        document.querySelector(".five-lines").style.display = "none";
-        document.querySelector(".glow-text").style.display = "none";
-        document.getElementById("python-terminal").style.display = "block";
-      } else if (username === "MMDBEGAIL" && password === "MAMADKAMAN") {
-        document.querySelector(".login-container").style.display = "none";
-        document.querySelector(".five-lines").style.display = "none";
-        document.querySelector(".glow-text").style.display = "none";
-        document.getElementById("music-player").style.display = "block";
-      } else {
-        alert("Invalid credentials! SYSTEM LOCKDOWN ENGAGED.");
-      }
+  const logoutPythonBtn = document.getElementById('logout-python');
+  const logoutMusicBtn = document.getElementById('logout-music');
+
+  let pyodideReadyPromise = null;
+
+  function showPage(page) {
+    loginPage.classList.add('hidden');
+    pythonPage.classList.add('hidden');
+    musicPage.classList.add('hidden');
+    page.classList.remove('hidden');
+  }
+
+  async function loadPyodideAndPackages() {
+    if (!pyodideReadyPromise) {
+      pyodideReadyPromise = loadPyodide();
+      await pyodideReadyPromise;
     }
+  }
 
-    async function runPythonCode() {
-      const code = document.getElementById("code").value;
+  loginBtn.onclick = async () => {
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
 
-      const response = await fetch("https://emkc.org/api/v2/piston/execute", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          language: "python3",
-          source: code
-        })
-      });
-
-      const result = await response.json();
-      document.getElementById("output").textContent = result.output || "No output";
+    if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
+      hackerCodeDiv.style.display = 'block';
+      hackerCodeDiv.textContent = `ACCESS GRANTED...
+Initializing system protocols...
+Scanning for vulnerabilities...
+Bypassing encryption...
+Injecting exploit...
+Data breach in progress...
+TRACING BACK CONNECTION...`;
+      // بعد از چند ثانیه صفحه ماتریکس پایتون رو نمایش بده
+      setTimeout(() => {
+        showPage(pythonPage);
+        pythonConsole.textContent = '';
+        pythonInput.value = '';
+        loadPyodideAndPackages();
+      }, 3000);
     }
-  </script>
+    else if (username === "MMDBEGAIL" && password === "MAMADKAMAN") {
+      showPage(musicPage);
+      hackerCodeDiv.style.display = 'none';
+    }
+    else {
+      alert("Invalid credentials! SYSTEM LOCKDOWN ENGAGED.");
+    }
+  };
+
+  runBtn.onclick = async () => {
+    const code = pythonInput.value;
+    if (!code.trim()) {
+      pythonConsole.textContent = 'Please enter some Python code.';
+      return;
+    }
+    pythonConsole.textContent = 'Running...';
+
+    try {
+      await loadPyodideAndPackages();
+      const pyodide = await pyodideReadyPromise;
+      let output = await pyodide.runPythonAsync(code);
+      pythonConsole.textContent = output ?? 'Code executed.';
+    } catch (err) {
+      pythonConsole.textContent = 'Error: ' + err;
+    }
+  };
+
+  logoutPythonBtn.onclick = () => {
+    showPage(loginPage);
+    hackerCodeDiv.style.display = 'none';
+  };
+
+  logoutMusicBtn.onclick = () => {
+    showPage(loginPage);
+  };
+</script>
+
 </body>
-    </html>
+  </html>
