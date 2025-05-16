@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Matrix Python Runner</title>
-
+  <title>Matrix System</title>
   <!-- فونت‌ها -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-
   <style>
     body {
       font-family: 'Press Start 2P', cursive;
@@ -19,7 +17,6 @@
       margin: 0;
       padding: 0;
     }
-
     .matrix-bg {
       position: fixed;
       top: 0;
@@ -31,7 +28,6 @@
       opacity: 0.8;
       z-index: -1;
     }
-
     .glow-text {
       margin-top: 10px;
       font-size: 20px;
@@ -39,46 +35,38 @@
       animation: glow 1.8s infinite alternate, flicker 0.3s infinite alternate;
       text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
     }
-
     @keyframes glow {
       from { opacity: 0.8; }
       to { opacity: 1; }
     }
-
     @keyframes flicker {
       0% { opacity: 0.9; }
       50% { opacity: 0.6; }
       100% { opacity: 1; }
     }
-
     .five-lines {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-top: 20px;
     }
-
     .line {
       font-size: 40px;
       font-weight: bold;
       animation: blink 3s infinite, float 3s infinite;
     }
-
     .red-line { color: red; font-family: 'UnifrakturCook', cursive; }
     .green-line { color: lime; font-family: 'UnifrakturCook', cursive; }
     .blue-line { color: cyan; font-family: 'UnifrakturCook', cursive; }
     .white-line { color: black; font-family: 'Press Start 2P', cursive; }
-
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
     }
-
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-3px); }
     }
-
     .login-container {
       margin: 50px auto;
       padding: 20px;
@@ -87,7 +75,6 @@
       width: 320px;
       border: 2px solid red;
     }
-
     input, button {
       display: block;
       width: 95%;
@@ -96,7 +83,6 @@
       border-radius: 10px;
       font-size: 18px;
     }
-
     button {
       background: red;
       color: white;
@@ -104,12 +90,10 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    #python-terminal {
+    #python-terminal, #music-player {
       display: none;
       padding: 20px;
     }
-
     textarea {
       width: 95%;
       font-family: monospace;
@@ -118,7 +102,6 @@
       border: 1px solid lime;
       border-radius: 10px;
     }
-
     pre {
       background: #000;
       color: #0f0;
@@ -129,11 +112,27 @@
       white-space: pre-wrap;
       word-wrap: break-word;
     }
+    .music-container {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid lime;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 50px auto;
+      width: 80%;
+    }
+    .music-container h2 {
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+    }
+    .music-container audio {
+      width: 100%;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="matrix-bg"></div>
-  <audio id="typing-sound" src="data:audio/mp3;base64,//uQxAAADHhBTUUzAAABcG5... (ادامه داده خواهد شد)"></audio>
+  <audio id="typing-sound" src="data:audio/mp3;base64,//uQxAAADHhBTUUzAAABcG5..."></audio>
 
   <div class="glow-text">IN GOD WE TRUST</div>
 
@@ -157,6 +156,20 @@
     <pre id="output"></pre>
   </div>
 
+  <div id="music-player" class="music-container">
+    <h2>🎵 Music Player</h2>
+    <p>Now Playing: Living Life in the Night</p>
+    <audio controls>
+      <source src="https://archive.org/download/cheriimoya-sierra-kidd-living-life-in-the-night-long-edition-night-drift_202203/cheriimoya-sierra-kidd-living-life-in-the-night-long-edition-night-drift.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p>Now Playing: نگاه کن این منم</p>
+    <audio controls>
+      <source src="https://sultanmusic.ir/wp-content/uploads/2022/10/Negah-Kon-In-Manam.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
   <script>
     document.addEventListener("click", function () {
       const audio = document.getElementById("typing-sound");
@@ -164,14 +177,19 @@
     });
 
     function checkLogin() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
 
       if (username === "MAMADKAMAN" && password === "MAMADKAMAN") {
         document.querySelector(".login-container").style.display = "none";
         document.querySelector(".five-lines").style.display = "none";
         document.querySelector(".glow-text").style.display = "none";
         document.getElementById("python-terminal").style.display = "block";
+      } else if (username === "MMDBEGAIL" && password === "MAMADKAMAN") {
+        document.querySelector(".login-container").style.display = "none";
+        document.querySelector(".five-lines").style.display = "none";
+        document.querySelector(".glow-text").style.display = "none";
+        document.getElementById("music-player").style.display = "block";
       } else {
         alert("Invalid credentials! SYSTEM LOCKDOWN ENGAGED.");
       }
@@ -196,4 +214,4 @@
     }
   </script>
 </body>
-      </html>
+    </html>
